@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: rootDir,
   },
+  serverExternalPackages: ["firebase-admin", "pdfkit", "qrcode", "form-data"],
   images: {
     remotePatterns: [
       {

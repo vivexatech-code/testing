@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/container";
 import { Wrench } from "lucide-react";
+import { getCityPath, SERVICE_CITIES } from "@/lib/seo/site";
 
 // Inline SVG for the Instagram icon
 function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -89,6 +90,10 @@ export function SiteFooter() {
             <ul className="space-y-3.5">
               {[
                 { label: "Categories near you", href: "/services" },
+                ...SERVICE_CITIES.map((city) => ({
+                  label: `Services in ${city}`,
+                  href: getCityPath(city),
+                })),
                 { label: "RS Reviews", href: "https://www.google.com/maps/place/Repair+Series/@28.4012186,76.9557952,17z/data=!4m8!3m7!1s0x390d3d26e8925053:0x7fb0e356f61ef7c4!8m2!3d28.4012186!4d76.9557952!9m1!1b1!16s%2Fg%2F11yzq3gt89?entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D" },
                 { label: "Contact us", href: "/contact" },
               ].map((link) => (
